@@ -1,6 +1,5 @@
 from dataclasses import asdict, dataclass
-from typing import List
-from typing import Dict, Type
+from typing import List, Dict, Type
 
 
 @dataclass
@@ -24,8 +23,8 @@ class InfoMessage:
 class Training:
     """Базовый класс тренировки."""
     LEN_STEP: float = 0.65  # один шаг
-    M_IN_KM: int = 1000  # константа для перевода м. в км.
-    HOURS_IN_MINUTES: int = 60  # минуты в час
+    M_IN_KM: float = 1000  # константа для перевода м. в км.
+    HOURS_IN_MINUTES: float = 60  # минуты в час
 
     def __init__(self,
                  action: int,
@@ -59,7 +58,7 @@ class Training:
 
 class Running(Training):
     """Тренировка: бег."""
-    CALORIES_MEAN_SPEED_MULTIPLIER: int = 18  # первая константа для расчёта
+    CALORIES_MEAN_SPEED_MULTIPLIER: float = 18  # первая константа для расчёта
     CALORIES_MEAN_SPEED_SHIFT: float = 1.79  # вторая константа для расчёта
 
     def get_spent_calories(self) -> float:
@@ -75,7 +74,7 @@ class SportsWalking(Training):
     MULTIPLIER_CALORIES_1: float = 0.035  # множитель для расчёта
     MULTIPLIER_CALORIES_2: float = 0.029  # множитель для расчёта
     KMHOUR_IN_MSECOND: float = 0.278  # перевод км.ч в м
-    SM_IN_MTR: int = 100  # сантиметров в метре
+    SM_IN_MTR: float = 100  # сантиметров в метре
 
     def __init__(self,
                  action: int,
@@ -98,7 +97,7 @@ class Swimming(Training):
     """Тренировка: плавание."""
     LEN_STEP: float = 1.38  # один гребок
     MULTIPLIER_CALORIES_3: float = 1.1  # множитель для расчёта
-    MULTIPLIER_CALORIES_4: int = 2  # множитель для расчёта
+    MULTIPLIER_CALORIES_4: float = 2  # множитель для расчёта
 
     def __init__(self,
                  action: int,
